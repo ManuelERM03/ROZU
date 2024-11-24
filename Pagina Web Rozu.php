@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page de Ejemplo</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Rozu</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a class="nav-link" href="#home">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">Sobre Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Slider -->
+    <section id="home">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="image1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Calidad Inigualable</h5>
+                        <p>Camisetas con estilo y confort.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="image2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Estilo Moderno</h5>
+                        <p>Diseños únicos para cada ocasión.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="image3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Confort y Elegancia</h5>
+                        <p>Perfectas para el día a día.</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Sección de información -->
+    <section id="about" class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="about.jpg" class="img-fluid" alt="Sobre Nosotros">
+            </div>
+            <div class="col-md-6">
+                <h2>Sobre Nosotros</h2>
+                <p>En Rozu, nos dedicamos a crear camisetas de alta calidad que combinan estilo y comodidad. Nuestra misión es proporcionar a nuestros clientes prendas que se adapten a su vida cotidiana y reflejen su personalidad.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de servicios -->
+    <section id="services" class="container my-5">
+        <h2 class="text-center">Nuestros Servicios</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Diseños Personalizados</h3>
+                <p>Ofrecemos diseños personalizados para cada cliente, adaptados a sus gustos y necesidades.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Calidad Superior</h3>
+                <p>Usamos materiales de alta calidad que garantizan durabilidad y confort.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Entrega Rápida</h3>
+                <p>Contamos con un sistema de entrega rápida que asegura que recibas tu pedido en el menor tiempo posible.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de contacto -->
+    <section id="contact" class="container my-5">
+        <h2 class="text-center">Contacto</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Nombre y Apellido</label>
+                <input type="text" class="form-control" id="name" placeholder="Ingrese su nombre y apellido" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Ingrese su email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Mensaje</label>
+                <textarea class="form-control" id="message" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-4">
+        <p>Manuel Romero - Cédula: 30.322.368</p>
+        <p>Rozu - Venta de Camisetas</p>
+        <p>&copy; 2024 Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
