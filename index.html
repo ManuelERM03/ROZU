@@ -6,12 +6,21 @@
     <title>Landing Page de Ejemplo</title>
     <!-- Enlace a Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <style>
+        .carousel-item img {
+            max-height: 650px;
+            object-fit:cover;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Navbar -->
+    <!-- Navbar con icono -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Rozu</a>
+        <a class="navbar-brand" href="#">
+            <img src="Recursos/ROZU-01.png"></img>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,7 +33,6 @@
             </ul>
         </div>
     </nav>
-
     <!-- Slider -->
     <section id="home">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -35,21 +43,21 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="image1.jpg" class="d-block w-100" alt="...">
+                    <img src="Recursos/2-01.png" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Calidad Inigualable</h5>
                         <p>Camisetas con estilo y confort.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="image2.jpg" class="d-block w-100" alt="...">
+                    <img src="Recursos/michell post 1-01.png" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Estilo Moderno</h5>
                         <p>Diseños únicos para cada ocasión.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="image3.jpg" class="d-block w-100" alt="...">
+                    <img src="Recursos/michell post 2.png" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Confort y Elegancia</h5>
                         <p>Perfectas para el día a día.</p>
@@ -71,7 +79,7 @@
     <section id="about" class="container my-5">
         <div class="row">
             <div class="col-md-6">
-                <img src="about.jpg" class="img-fluid" alt="Sobre Nosotros">
+                <img src="ROZU.jpg" class="img-fluid" alt="Sobre Nosotros">
             </div>
             <div class="col-md-6">
                 <h2>Sobre Nosotros</h2>
