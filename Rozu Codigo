@@ -129,9 +129,8 @@
 
     <!-- Footer -->
     <footer class="bg-light text-center py-4">
-        <p>Manuel Romero - Cédula: 30.322.368</p>
         <p>Rozu - Venta de Camisetas</p>
-        <p>&copy; 2024 Todos los derechos reservados.</p>
+        <p>&copy; 2025 Todos los derechos reservados.</p>
     </footer>
 
     <!-- Scripts de Bootstrap -->
