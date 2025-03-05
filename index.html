@@ -294,8 +294,9 @@
     // Si se selecciona 'home', mostramos 'home' y 'contact' juntos
     if (id === 'home') {
       document.getElementById('home').classList.add('activa');
-      document.getElementById('servicios').classList.add('activa');
-      document.getElementById('contacto').classList.add('activa');
+      document.getElementById('services').classList.add('activa');
+      document.getElementById('contact').classList.add('activa');
+      document.getElementById('about').classList.add('activa');
     } else {
       // Si se selecciona cualquier otra, se muestra sólo esa sección
       var seccionActiva = document.getElementById(id);
@@ -310,5 +311,6 @@
     mostrarSeccion('home');
   });
 </script>
+
 </body>
 </html>
