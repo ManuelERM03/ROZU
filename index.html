@@ -192,32 +192,39 @@
   </section>
 
   <!-- Sección Galería -->
-  <section id="gallery" class="seccion">
-    <div class="container my-5">
-      <h2>Galería</h2>
-      <!-- Ejemplo de elementos de galería -->
-      <div class="row">
-        <div class="col-md-4 gallery-item">
-                <img src="Recursos/6.png" alt="Camiseta 1">
-            </div>
-            <div class="col-md-4 gallery-item">
-                <img src="Recursos/8.png" alt="Camiseta 2">
-            </div>
-            <div class="col-md-4 gallery-item">
-                <img src="Recursos/10.png" alt="Camiseta 3">
-            </div>
-            <div class="col-md-4 gallery-item">
-                <img src="Recursos/23.png" alt="Camiseta 4">
-            </div>
-            <div class="col-md-4 gallery-item">
-                <img src="Recursos/18.png" alt="Camiseta 5">
-            </div>
-            <div class="col-md-4 gallery-item">
-                <img src="Recursos/22.png" alt="Camiseta 6">
-            </div>
-      </div>
+ <section id="gallery" class="seccion">
+  <div class="container my-5">
+    <h2>Galería</h2>
+
+    <!-- Botones de filtro por categoría -->
+    <div class="btn-group mb-4" role="group" aria-label="Categorías de la Galería">
+      <button type="button" class="btn btn-primary" onclick="filterGallery('all')">Todas</button>
+      <button type="button" class="btn btn-primary" onclick="filterGallery('anime')">Anime</button>
+      <button type="button" class="btn btn-primary" onclick="filterGallery('artistas')">Artistas</button>
+      <button type="button" class="btn btn-primary" onclick="filterGallery('series')">Series</button>
+      <button type="button" class="btn btn-primary" onclick="filterGallery('deportistas')">Deportistas</button>
+      <button type="button" class="btn btn-primary" onclick="filterGallery('rozu-exclusive')">Rozu-Exclusive</button>
     </div>
-  </section>
+
+    <!-- Contenedor de imágenes -->
+    <div class="row" id="galleryContainer">
+      <div class="col-md-4 gallery-item" data-category="anime">
+        <img src="Recursos/10.png" alt="Anime 1">
+      </div>
+      <div class="col-md-4 gallery-item" data-category="artistas">
+        <img src="Recursos/15.png" alt="Artista 1">
+      </div>
+      <div class="col-md-4 gallery-item" data-category="deportistas">
+        <img src="Recursos/16.png" alt="Deportista 1">
+      </div>
+      <div class="col-md-4 gallery-item" data-category="rozu-exclusive">
+        <img src="Recursos/20.png" alt="Rozu Exclusive 1">
+      </div>
+      <!-- Agrega más imágenes asignándoles la categoría correspondiente -->
+    </div>
+  </div>
+</section>
+
 
     <!-- Sección Servicios -->
   <section id="services" class="seccion">
