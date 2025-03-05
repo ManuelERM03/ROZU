@@ -140,10 +140,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <!-- Se cambia el href y se añade onclick para mostrar la sección correspondiente -->
-        <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('home');">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('gallery');">Galería</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('contact');">Contacto</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('about');">Sobre Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('inicio');">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('galeria');">Galería</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('contacto');">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('sobre');">Sobre Nosotros</a></li>
       </ul>
     </div>
   </nav>
@@ -276,23 +276,29 @@
   
   <!-- Script para mostrar/ocultar secciones -->
   <script>
-    function mostrarSeccion(id) {
-      // Selecciona todas las secciones que se deben mostrar/ocultar
-      var secciones = document.querySelectorAll('.seccion');
-      secciones.forEach(function(seccion) {
-        seccion.classList.remove('activa');
-      });
-      // Muestra la sección correspondiente agregándole la clase 'activa'
+  function mostrarSeccion(id) {
+    // Oculta todas las secciones
+    var secciones = document.querySelectorAll('.seccion');
+    secciones.forEach(function(seccion) {
+      seccion.classList.remove('activa');
+    });
+    // Si se selecciona 'home', mostramos 'home' y 'contact' juntos
+    if (id === 'home') {
+      document.getElementById('inicio').classList.add('activa');
+      document.getElementById('contacto').classList.add('activa');
+    } else {
+      // Si se selecciona cualquier otra, se muestra sólo esa sección
       var seccionActiva = document.getElementById(id);
       if (seccionActiva) {
         seccionActiva.classList.add('activa');
       }
     }
-    
-    // Opcional: Mostrar por defecto la sección "home" al cargar la página
-    document.addEventListener("DOMContentLoaded", function() {
-      mostrarSeccion('home');
-    });
-  </script>
+  }
+
+  // Opcional: Mostrar por defecto la sección "home" (que incluye también "contact") al cargar la página
+  document.addEventListener("DOMContentLoaded", function() {
+    mostrarSeccion('inicio');
+  });
+</script>
 </body>
 </html>
