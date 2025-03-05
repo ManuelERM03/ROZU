@@ -223,13 +223,11 @@
     </div>
   </section>
 
-  <!-- Sección Galería -->
+<!-- Sección Galería -->
 <section id="gallery" class="seccion">
   <div class="container my-5">
     <h1>Galería</h1>
-    <div class="row" id="galleryContainer">
-      <!-- Las imágenes se cargarán aquí -->
-      
+    <div class="row">
       <!-- Columna de categorías -->
       <div class="col-md-3">
         <div class="list-group">
@@ -239,8 +237,12 @@
           <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('deportistas')">Deportistas</a>
           <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('peliculas')">Peliculas</a>
           <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('series')">Series</a>
-          <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('rozu-exclusive')">Rozu-Exclusive</a>
+          <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('Rozu-Exclusive')">Rozu-Exclusive</a>
         </div>
+      </div>
+      <!-- Columna para las imágenes -->
+      <div class="col-md-9" id="galleryContainer">
+        <!-- Las imágenes se cargarán aquí -->
       </div>
     </div>
   </div>
@@ -334,7 +336,7 @@
 
 <script>
   const username = 'ManuelERM03';
-  const repo = 'ManuelERM03/ROZU';
+  const repo = 'ROZU'; // Corregido: solo el nombre del repo
   
   // Arreglo con la información de cada carpeta y su categoría
   const folders = [
@@ -346,11 +348,13 @@
     { path: 'Recursos/rozu-exclusive', category: 'Rozu-Exclusive' }
   ];
   
-  // Contenedor donde se insertarán las imágenes
+  // Contenedor donde se insertarán las imágenes (ahora en la columna de imágenes)
   const galleryContainer = document.getElementById('galleryContainer');
   
   folders.forEach(folder => {
-    const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/${folder.path}`;
+    // Codificar cada parte de la ruta para manejar espacios y caracteres especiales
+    const encodedPath = folder.path.split('/').map(encodeURIComponent).join('/');
+    const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/${encodedPath}`;
     
     fetch(apiUrl)
       .then(response => response.json())
@@ -375,6 +379,7 @@
       .catch(error => console.error(`Error al cargar imágenes de ${folder.path}:`, error));
   });
 </script>
+
   
   <!-- Scripts de Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
