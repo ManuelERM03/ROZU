@@ -280,7 +280,7 @@
 
 <!-- Modal de visualización de imagen con navegación -->
 <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content bg-transparent border-0">
       <div class="modal-body p-0 position-relative">
          <img id="modalImage" src="" class="img-fluid" alt="Imagen ampliada">
@@ -334,17 +334,41 @@
   });
 </script>
 
-  <script>
-  // Selecciona todas las imágenes dentro de los elementos con clase .gallery-item
-  document.querySelectorAll('.gallery-item img').forEach(function(img) {
+ <script>
+  // Obtén todas las imágenes de la galería y conviértelas en un arreglo
+  const galleryImages = Array.from(document.querySelectorAll('.gallery-item img'));
+  let currentIndex = 0; // Índice de la imagen actualmente mostrada en el modal
+
+  // Asigna el evento de click a cada imagen de la galería
+  galleryImages.forEach((img, index) => {
     img.addEventListener('click', function() {
-      // Obtiene la ruta de la imagen clickeada
-      var src = this.getAttribute('src');
-      // Asigna esa ruta a la imagen del modal
+      currentIndex = index; // Guarda el índice de la imagen clickeada
+      const src = this.getAttribute('src');
       document.getElementById('modalImage').setAttribute('src', src);
-      // Muestra el modal usando jQuery y Bootstrap
-      $('#imageModal').modal('show');
+      $('#imageModal').modal('show'); // Abre el modal (usa jQuery y Bootstrap)
     });
+  });
+
+  // Función para actualizar la imagen del modal según el índice actual
+  function updateModalImage() {
+    const newSrc = galleryImages[currentIndex].getAttribute('src');
+    document.getElementById('modalImage').setAttribute('src', newSrc);
+  }
+
+  // Evento para el botón "Anterior"
+  document.getElementById('prevBtn').addEventListener('click', function(event) {
+    event.preventDefault();
+    // Si estamos en la primera imagen, saltamos a la última (circular)
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    updateModalImage();
+  });
+
+  // Evento para el botón "Siguiente"
+  document.getElementById('nextBtn').addEventListener('click', function(event) {
+    event.preventDefault();
+    // Si estamos en la última imagen, saltamos a la primera (circular)
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    updateModalImage();
   });
 </script>
 
