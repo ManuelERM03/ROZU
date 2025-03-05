@@ -56,7 +56,22 @@
     .gallery-item:hover img {
       transform: scale(1.2);
     }
-    
+
+     /* Estilo personalizado para la lista de categorías */
+    .list-group-item {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      color: #000;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .list-group-item:hover,
+    .list-group-item.active {
+      background-color: #000;
+      color: #fff;
+      border-color: #000;
+    }
+
     /* Otros estilos */
     .servicios {
       text-align: center;
@@ -192,38 +207,47 @@
   </section>
 
   <!-- Sección Galería -->
- <section id="gallery" class="seccion">
+<section id="gallery" class="seccion">
   <div class="container my-5">
     <h2>Galería</h2>
-
-    <!-- Botones de filtro por categoría -->
-    <div class="btn-group mb-4" role="group" aria-label="Categorías de la Galería">
-      <button type="button" class="btn btn-primary" onclick="filterGallery('all')">Todas</button>
-      <button type="button" class="btn btn-primary" onclick="filterGallery('anime')">Anime</button>
-      <button type="button" class="btn btn-primary" onclick="filterGallery('artistas')">Artistas</button>
-      <button type="button" class="btn btn-primary" onclick="filterGallery('series')">Series</button>
-      <button type="button" class="btn btn-primary" onclick="filterGallery('deportistas')">Deportistas</button>
-      <button type="button" class="btn btn-primary" onclick="filterGallery('rozu-exclusive')">Rozu-Exclusive</button>
-    </div>
-
-    <!-- Contenedor de imágenes -->
-    <div class="row" id="galleryContainer">
-      <div class="col-md-4 gallery-item" data-category="anime">
-        <img src="Recursos/10.png" alt="Anime 1">
+    <div class="row">
+      <!-- Columna de categorías -->
+      <div class="col-md-3">
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('all')">Todas</a>
+          <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('anime')">Anime</a>
+          <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('artistas')">Artistas</a>
+          <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('deportistas')">Deportistas</a>
+          <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('series')">Series</a>
+          <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('rozu-exclusive')">Rozu-Exclusive</a>
+        </div>
       </div>
-      <div class="col-md-4 gallery-item" data-category="artistas">
-        <img src="Recursos/15.png" alt="Artista 1">
+      
+      <!-- Columna de imágenes -->
+      <div class="col-md-9">
+        <div class="row" id="galleryContainer">
+          <div class="col-md-4 gallery-item" data-category="anime">
+            <img src="Recursos/10.png" alt="Anime 1">
+          </div>
+          <div class="col-md-4 gallery-item" data-category="artistas">
+            <img src="Recursos/11.png" alt="Artista 1">
+          </div>
+          <div class="col-md-4 gallery-item" data-category="deportistas">
+            <img src="Recursos/12.png" alt="Deportista 1">
+          </div>
+          <div class="col-md-4 gallery-item" data-category="series">
+            <img src="Recursos/14.png" alt="Series 1">
+          </div>
+          <div class="col-md-4 gallery-item" data-category="rozu-exclusive">
+            <img src="Recursos/13.png" alt="Rozu Exclusive 1">
+          </div>
+          <!-- Agrega más imágenes según sea necesario -->
+        </div>
       </div>
-      <div class="col-md-4 gallery-item" data-category="deportistas">
-        <img src="Recursos/16.png" alt="Deportista 1">
-      </div>
-      <div class="col-md-4 gallery-item" data-category="rozu-exclusive">
-        <img src="Recursos/20.png" alt="Rozu Exclusive 1">
-      </div>
-      <!-- Agrega más imágenes asignándoles la categoría correspondiente -->
     </div>
   </div>
 </section>
+
 
 
     <!-- Sección Servicios -->
@@ -311,6 +335,21 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Script para filtrar imagenes -->
+  <script>
+  function filterGallery(category) {
+    const items = document.querySelectorAll('.gallery-item');
+    items.forEach(item => {
+      // Si se selecciona "all" o la categoría coincide, se muestra la imagen
+      if (category === 'all' || item.getAttribute('data-category') === category) {
+        item.classList.remove('d-none');
+      } else {
+        item.classList.add('d-none');
+      }
+    });
+  }
+</script>
   
   <!-- Script para mostrar/ocultar secciones -->
   <script>
