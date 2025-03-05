@@ -278,6 +278,28 @@
     <p>&copy; 2025 Todos los derechos reservados.</p>
   </footer>
 
+<!-- Modal de visualización de imagen con navegación -->
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 position-relative">
+         <img id="modalImage" src="" class="img-fluid" alt="Imagen ampliada">
+         <!-- Botón Anterior -->
+         <a href="#" id="prevBtn" role="button" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%);">
+           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+           <span class="sr-only">Anterior</span>
+         </a>
+         <!-- Botón Siguiente -->
+         <a href="#" id="nextBtn" role="button" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%);">
+           <span class="carousel-control-next-icon" aria-hidden="true"></span>
+           <span class="sr-only">Siguiente</span>
+         </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
   <!-- Scripts de Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
@@ -309,6 +331,20 @@
   // Opcional: Mostrar por defecto la sección "home" (que incluye también "contact") al cargar la página
   document.addEventListener("DOMContentLoaded", function() {
     mostrarSeccion('home');
+  });
+</script>
+
+  <script>
+  // Selecciona todas las imágenes dentro de los elementos con clase .gallery-item
+  document.querySelectorAll('.gallery-item img').forEach(function(img) {
+    img.addEventListener('click', function() {
+      // Obtiene la ruta de la imagen clickeada
+      var src = this.getAttribute('src');
+      // Asigna esa ruta a la imagen del modal
+      document.getElementById('modalImage').setAttribute('src', src);
+      // Muestra el modal usando jQuery y Bootstrap
+      $('#imageModal').modal('show');
+    });
   });
 </script>
 
