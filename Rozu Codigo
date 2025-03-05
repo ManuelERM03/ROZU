@@ -6,20 +6,139 @@
     <title>ROZU</title>
     <!-- Enlace a Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Enlace a Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <!-- Estilos personalizados -->
     <style>
+        .navbar-nav .nav-link {
+        font-size: 20px; /* Ajusta el tamaño del texto*/
+
+        }
+        body {
+            scroll-behavior: smooth; /* Efecto smooth scrolling nativo */
+        }
+
         .carousel-item img {
-            max-height: 650px;
-            object-fit:cover;
+            max-height: 700px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        /* Estilo para el ícono en la navbar */
+        .navbar-icon {
+            max-width: 150px; /* Ancho máximo del ícono */
+            max-height: 100px; /* Alto máximo del ícono */
+        }
+
+        .navbar-nav .nav-link:hover {
+            background: #d4d4d4;
+            color: black !important; /* Cambia el color del texto */
+            border-radius: 10px; /* Redondea las esquinas */
+            transition: background 0.4s ease, color 0.4s ease; /* Suaviza la transición */
+        }
+        
+        /* Estilo para la nueva sección Galería */
+        #gallery {
+            padding: 50px 30px;
+            background-color: #f8f9fa;
+        }
+
+        #gallery h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .gallery-item {
+            padding: 15px 15px;
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 1s ease-in-out; /* Animación CSS */
+        }
+
+        .gallery-item img {
+            width: 100%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.2); /* Zoom al pasar el ratón */
+        }
+        .servicios {
+            text-align: center;
+            padding: 40px 40px;
+        }
+        .about-us {
+            max-height: 120px; 
+            margin-right: 40px;
+        }
+
+        .margenau { 
+            margin-left: 40px;
+        }
+
+        .btn {
+            animation: pulse 2s infinite;
+        }
+        .instagram-btn {
+            margin-left: 10px;
+            background-color:rgb(192, 14, 53); /* Color rojo Instagram */
+            color: #fff; /* Texto blanco */
+            border: none; /* Sin bordes */
+            padding: 10px 20px; /* Espaciado interno */
+            font-size: 18px; /* Tamaño del texto */
+            border-radius: 10px; /* Bordes redondeados */
+            transition: background-color 0.3s ease;
+        }
+
+        .instagram-btn:hover {
+            background-color:rgb(156, 0, 34); /* Color más oscuro al pasar el mouse */
+            text-decoration: none; /* Sin subrayado */
+        }
+        
+        .whatsapp-btn {
+            margin-right: 10px;
+            background-color:rgb(9, 192, 100); /* Color rojo Instagram */
+            color: #fff; /* Texto blanco */
+            border: none; /* Sin bordes */
+            padding: 10px 20px; /* Espaciado interno */
+            font-size: 18px; /* Tamaño del texto */
+            border-radius: 10px; /* Bordes redondeados */
+            transition: background-color 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background-color:rgb(0, 138, 69); /* Color más oscuro al pasar el mouse */
+            text-decoration: none; /* Sin subrayado */
+        }
+
+
+        /* Animación slideUp */
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navbar con icono -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="Recursos/ROZU-01.png"></img>
+            <img src="Recursos/ROZU Icono.png" alt="ROZU Icono" class="navbar-icon">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -27,12 +146,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active"><a class="nav-link" href="#home">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">Sobre Nosotros</a></li>
-                <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="Galeria/index.html">Galería</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">Sobre Nosotros</a></li>
             </ul>
         </div>
     </nav>
+
     <!-- Slider -->
     <section id="home">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -43,24 +163,24 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="Recursos/2-01.png" class="d-block w-100" alt="...">
+                    <img src="Recursos/2-01.png" class="d-block w-100" alt="Calidad Inigualable">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Calidad Inigualable</h5>
+                        <h4>Calidad Inigualable</h4>
                         <p>Camisetas con estilo y confort.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="Recursos/michell post 1-01.png" class="d-block w-100" alt="...">
+                    <img src="Recursos/michell post 1-01.png" class="d-block w-100" alt="Estilo Moderno">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Estilo Moderno</h5>
+                        <h4>Estilo Moderno</h4>
                         <p>Diseños únicos para cada ocasión.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="Recursos/michell post 2.png" class="d-block w-100" alt="...">
+                    <img src="Recursos/michell post 2-01.png" class="d-block w-100" alt="Confort y Elegancia">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Confort y Elegancia</h5>
-                        <p>Perfectas para el día a día.</p>
+                        <h4>Confort y Elegancia</h4>
+                        <p>Frescas y Ligeras, perfectas para el día a día.</p>
                     </div>
                 </div>
             </div>
@@ -75,22 +195,40 @@
         </div>
     </section>
 
-    <!-- Sección de información -->
-    <section id="about" class="container my-5">
+
+    <!-- Contacto -->
+   
+    <section id="contact" class="container my-5">
+        <h2 class="text-center">Contacto</h2>
+        <div class="text-center mt-4">
+            <a href="https://wa.me/+584243296308?text=Hola%20!ROZU¡,%20Me%20gustaría%20obtener%20más%20información." target="_blank" class="btn whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Contáctanos por WhatsApp
+            </a>
+            <a href="https://instagram.com/tu_usuario" target="_blank" class="btn instagram-btn">
+                <i class="fab fa-instagram"></i> Síguenos en Instagram
+            </a>
+        </div>
+    </section>
+
+
+
+  <!-- Sección de información -->
+  <section id="about" class="container my-5">
         <div class="row">
-            <div class="col-md-6">
-                <img src="Recursos/ROZU.jpg" class="img-fluid" alt="Sobre Nosotros">
+            <div class="col-md-5">
+                <img src="Recursos/ROZU.jpg" class="about-us" alt="Sobre Nosotros">
             </div>
             <div class="col-md-6">
-                <h2>Sobre Nosotros</h2>
-                <p>En Rozu, nos dedicamos a crear camisetas de alta calidad que combinan estilo y comodidad. Nuestra misión es proporcionar a nuestros clientes prendas que se adapten a su vida cotidiana y reflejen su personalidad.</p>
+             <div class="margenau">
+                    <h2>Sobre Nosotros</h2>
+                    <p>En Rozu, nos dedicamos a crear camisetas de alta calidad que combinan estilo y comodidad. Nuestra misión es proporcionar a nuestros clientes prendas que se adapten a su vida cotidiana y reflejen su personalidad.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Sección de servicios -->
-    <section id="services" class="container my-5">
-        <h2 class="text-center">Nuestros Servicios</h2>
+    <section id="services" class="container my-4">
         <div class="row">
             <div class="col-md-4">
                 <h3>Diseños Personalizados</h3>
@@ -105,31 +243,11 @@
                 <p>Contamos con un sistema de entrega rápida que asegura que recibas tu pedido en el menor tiempo posible.</p>
             </div>
         </div>
-    </section>
-
-    <!-- Sección de contacto -->
-    <section id="contact" class="container my-5">
-        <h2 class="text-center">Contacto</h2>
-        <form>
-            <div class="form-group">
-                <label for="name">Nombre y Apellido</label>
-                <input type="text" class="form-control" id="name" placeholder="Ingrese su nombre y apellido" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Ingrese su email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Mensaje</label>
-                <textarea class="form-control" id="message" rows="3" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-    </section>
+    </section>    
 
     <!-- Footer -->
-    <footer class="bg-light text-center py-4">
-        <p>Rozu - Venta de Camisetas</p>
+    <footer>
+        <p>Rozu - Tienda Online</p>
         <p>&copy; 2025 Todos los derechos reservados.</p>
     </footer>
 
