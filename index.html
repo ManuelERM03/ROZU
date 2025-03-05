@@ -335,49 +335,61 @@
 </div>
 
 <script>
-  const username = 'ManuelERM03';
-  const repo = 'ROZU'; // Corregido: solo el nombre del repo
-  
-  // Arreglo con la información de cada carpeta y su categoría
-  const folders = [
-    { path: 'Recursos/anime post', category: 'anime' },
-    { path: 'Recursos/artistas post', category: 'artistas' },
-    { path: 'Recursos/deportistas post', category: 'deportistas' },
-    { path: 'Recursos/peliculas post', category: 'peliculas' },
-    { path: 'Recursos/series post', category: 'series' },
-    { path: 'Recursos/rozu-exclusive', category: 'Rozu-Exclusive' }
-  ];
-  
-  // Contenedor donde se insertarán las imágenes (ahora en la columna de imágenes)
-  const galleryContainer = document.getElementById('galleryContainer');
-  
-  folders.forEach(folder => {
-    // Codificar cada parte de la ruta para manejar espacios y caracteres especiales
-    const encodedPath = folder.path.split('/').map(encodeURIComponent).join('/');
-    const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/${encodedPath}`;
+    const username = 'ManuelERM03';
+    const repo = 'ROZU'; // Corregido: solo el nombre del repo
     
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
-        data.forEach(file => {
-          const ext = file.name.split('.').pop().toLowerCase();
-          if (['jpg', 'jpeg', 'png', 'gif'].includes(ext)) {
-            const div = document.createElement('div');
-            div.className = 'col-md-4 gallery-item';
-            // Asignar la categoría correspondiente según la carpeta
-            div.setAttribute('data-category', folder.category);
-  
-            const img = document.createElement('img');
-            img.src = file.download_url;
-            img.alt = file.name;
-  
-            div.appendChild(img);
-            galleryContainer.appendChild(div);
+    // Arreglo con la información de cada carpeta y su categoría
+    const folders = [
+      { path: 'Recursos/anime post', category: 'anime' },
+      { path: 'Recursos/artistas post', category: 'artistas' },
+      { path: 'Recursos/deportistas post', category: 'deportistas' },
+      { path: 'Recursos/peliculas post', category: 'peliculas' },
+      { path: 'Recursos/series post', category: 'series' },
+      { path: 'Recursos/rozu-exclusive', category: 'Rozu-Exclusive' }
+    ];
+      
+    // Contenedor donde se insertarán las imágenes (ahora en la columna de imágenes)
+    const galleryContainer = document.getElementById('galleryContainer');
+    
+    folders.forEach(folder => {
+      // Codificar cada parte de la ruta para manejar espacios y caracteres especiales
+      const encodedPath = folder.path.split('/').map(encodeURIComponent).join('/');
+      const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/${encodedPath}`;
+      
+      folders.forEach(folder => {
+    // Codificar cada parte de la ruta para manejar espacios y caracteres especiales
+    const encodedPath = folder.path.split('/').map(segment => encodeURIComponent(segment)).join('/');
+    const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/${encodedPath}`;
+    console.log("Llamando a:", apiUrl); // Verifica la URL en la consola
+
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
           }
-        });
-      })
-      .catch(error => console.error(`Error al cargar imágenes de ${folder.path}:`, error));
-  });
+          return response.json();
+        })
+        .then(data => {
+          console.log("Datos recibidos:", data); // Muestra la respuesta de la API
+          data.forEach(file => {
+            const ext = file.name.split('.').pop().toLowerCase();
+            if (['jpg', 'jpeg', 'png', 'gif'].includes(ext)) {
+              const div = document.createElement('div');
+              div.className = 'col-md-4 gallery-item';
+              // Asignar la categoría correspondiente según la carpeta
+              div.setAttribute('data-category', folder.category);
+    
+              const img = document.createElement('img');
+              img.src = file.download_url;
+              img.alt = file.name;
+    
+              div.appendChild(img);
+              galleryContainer.appendChild(div);
+            }
+          });
+        })
+        .catch(error => console.error(`Error al cargar imágenes de ${folder.path}:`, error));
+    });
 </script>
 
   
