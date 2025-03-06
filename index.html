@@ -184,8 +184,14 @@
   <!-- Navbar con clase navbar-fixed para posicionarla de forma fija -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed">
     <a class="navbar-brand" href="#">
-      <img src="Recursos/Logo/ROZUPaginaLogo.png" alt="ROZU Icono" class="navbar-icon">
+      <picture>
+        <!-- Para pantallas pequeñas se usa el logo reducido -->
+        <source media="(max-width: 768px)" srcset="Recursos/Logo/ROZU-02.png">
+        <!-- Para pantallas mayores se usa el logo completo -->
+        <img src="Recursos/Logo/ROZUPaginaLogo.png" alt="ROZU Icono" class="navbar-icon">
+      </picture>
     </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
