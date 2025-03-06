@@ -1,784 +1,790 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ROZU</title>
-  <!-- Enlace a Bootstrap CSS -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  
-  <link rel="icon" href="Recursos/Logo/favicon.svg" type="image/svg+xml">
-  
-  <!-- Estilos personalizados -->
-  <style>
-    /* Estilo para la navbar */
-        /* Estilos para navbar fija y animaciones */
-    .navbar-fixed {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 9999;
-      transition: top 0.3s ease, height 0.3s ease;
-    }
-    /* Cuando se oculta, se desplaza hacia arriba (ajusta el valor según la altura de tu navbar) */
-    .navbar-hidden {
-      top: -100px;
-    }
-    /* Reducir la altura de la navbar */
-    .navbar-small {
-      height: 70px;
-    }
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROZU</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     
-    .navbar-nav .nav-link {
-      text-align: center;
-      font-size:3ex;
-    }
-    body {
-      scroll-behavior: smooth;
-    }
-    .carousel-item img {
-      max-height: 130%;
-      object-fit: cover;
-      width: 100%;
-    }
-    .navbar-icon {
-      max-width: 180px;
-      max-height: 100px;
-    }
-
-    @media (max-width: 768px) {
-    .navbar-brand picture img {
-      max-height: 65px; /* Ajusta este valor según lo que necesites */
+    <link rel="icon" href="Recursos/Logo/favicon.svg" type="image/svg+xml">
+    
+    <!-- Estilos personalizados -->
+    <style>
+      /* Estilo para la navbar */
+          /* Estilos para navbar fija y animaciones */
+      .navbar-fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        transition: top 0.3s ease, height 0.3s ease;
       }
-    }
-    .navbar-nav .nav-link:hover {
-      background: #d4d4d4;
-      color: black !important;
-      padding: 5px;
-      border-radius: 8px;
-      transition: background 0.4s ease, color 0.4s ease;
-    }
-
-    #home {
-      margin-top: 85px; /* Ajusta este valor si la altura de la navbar cambia */
-    }
-    /* Estilo para la sección Galería */
-    #gallery {
-      padding: 20px 20px;
-      background-color: #f8f9fa;
-    }
-    #gallery h1 {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .gallery-item {
-      padding: 15px;
-      position: relative;
-      overflow: hidden;
-      animation: slideUp 1s ease-in-out;
-    }
-    .gallery-item img {
-      width: 100%;
-      transition: transform 0.3s ease-in-out;
-    }
-    .gallery-item:hover img {
-      transform: scale(1.2);
-    }
-
-        /* Quitar padding izquierdo en la columna de categorías */
-    #gallery .col-md-3 {
-      padding-right: 30px;
-    }
-    
-    /* Ajustar la lista para que no tenga margen extra a la izquierda */
-    #gallery .list-group {
-      margin-right: 20px;
-    }
-    
-    /* Aumentar el tamaño de la fuente en los elementos de la lista */
-    #gallery .list-group-item {
-      font-size: 1.25rem; /* Aproximadamente 20px, puedes ajustar este valor */
-      font-weight: bold;  /* Texto en negrita */
-    }
-
-     /* Estilo personalizado para la lista de categorías */
-    .list-group-item {
-      background-color: #fff;
-      border: 1px solid #ddd;
-      color: #000;
-      cursor: pointer;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    .list-group-item:hover,
-    .list-group-item.active {
-      background-color: #000;
-      color: #fff;
-      border-color: #000;
-    }
-
-    /* Otros estilos */
-    .servicios {
-      text-align: center;
-      padding: 40px;
-    }
-    .about-us {
-      max-height: 150px; 
-      margin-right: 40px;
-    }
-    .margenau { 
-      margin-left: 25px;
-    }
-    .btn {
-      animation: pulse 2s infinite;
-    }
-    .instagram-btn {
-      margin-left: 10px;
-      background-color: rgb(192, 14, 53);
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 18px;
-      border-radius: 10px;
-      transition: background-color 0.3s ease;
-    }
-    .instagram-btn:hover {
-      background-color: rgb(0, 0, 0);
-      color: #fff;
-    }
-    .whatsapp-btn {
-      margin-right: 10px;
-      background-color: rgb(9, 192, 100);
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 18px;
-      border-radius: 10px;
-      transition: background-color 0.3s ease;
-    }
-    .whatsapp-btn:hover {
-      background-color: rgb(0, 0, 0);
-      color: #fff;
-    }
-    @keyframes slideUp {
-      from {
-        transform: translateY(100%);
-        opacity: 0;
+      /* Cuando se oculta, se desplaza hacia arriba (ajusta el valor según la altura de tu navbar) */
+      .navbar-hidden {
+        top: -100px;
       }
-      to {
-        transform: translateY(0);
-        opacity: 1;
+      /* Reducir la altura de la navbar */
+      .navbar-small {
+        height: 70px;
       }
-    }
-    footer {
-      background-color: #1a1a1a;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    
-    /* Estilos para mostrar/ocultar secciones */
-    .seccion {
-      display: none;
-    }
-    .seccion.activa {
-      display: block;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Navbar con clase navbar-fixed para posicionarla de forma fija -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed">
-    <a class="navbar-brand" href="#">
-      <picture>
-        <!-- Para pantallas pequeñas se usa el logo reducido -->
-        <source media="(max-width: 768px)" srcset="Recursos/Logo/ROZUPaginaLogoSmall.png">
-        <!-- Para pantallas mayores se usa el logo completo -->
-        <img src="Recursos/Logo/ROZUPaginaLogo.png" alt="ROZU Icono" class="navbar-icon">
-      </picture>
-    </a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('home');">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('gallery');">Galería</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('contact');">Contacto</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('about');">Sobre Nosotros</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Secciones de la página -->
-  <!-- Sección Home (Slider) -->
-  <section id="home" class="seccion activa">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-
       
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="Recursos/Logo/Banner Prueba.png" class="d-block w-100" alt="Calidad Inigualable">
-          <div class="carousel-caption d-none d-md-block">
-            <h2>Calidad Inigualable</h2>
-            <h4>Camisetas con estilo y confort.</h4>
+      .navbar-nav .nav-link {
+        text-align: center;
+        font-size:2.5ex;
+      }
+      body {
+        scroll-behavior: smooth;
+      }
+      .carousel-item img {
+        max-height: 130%;
+        object-fit: cover;
+        width: 100%;
+      }
+      .navbar-icon {
+        max-width: 180px;
+        max-height: 100px;
+      }
+
+      @media (max-width: 768px) {
+      .navbar-brand picture img {
+        max-height: 65px; /* Ajusta este valor según lo que necesites */
+        }
+      }
+      .navbar-nav .nav-link:hover {
+        background: #d4d4d4;
+        color: black !important;
+        padding: 5px;
+        border-radius: 8px;
+        transition: background 0.4s ease, color 0.4s ease;
+      }
+
+      #home {
+        margin-top: 85px; /* Ajusta este valor si la altura de la navbar cambia */
+      }
+      /* Estilo para la sección Galería */
+      #gallery {
+        padding: 20px 20px;
+        background-color: #f8f9fa;
+      }
+      #gallery h1 {
+        font-size:3ex;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .gallery-item {
+        padding: 15px;
+        position: relative;
+        overflow: hidden;
+        animation: slideUp 1s ease-in-out;
+      }
+      .gallery-item img {
+        width: 100%;
+        transition: transform 0.3s ease-in-out;
+      }
+      .gallery-item:hover img {
+        transform: scale(1.2);
+      }
+
+          /* Quitar padding izquierdo en la columna de categorías */
+      #gallery .col-md-3 {
+        padding-right: 30px;
+      }
+      
+      /* Ajustar la lista para que no tenga margen extra a la izquierda */
+      #gallery .list-group {
+        margin-right: 20px;
+      }
+      
+      /* Aumentar el tamaño de la fuente en los elementos de la lista */
+      #gallery .list-group-item {
+        font-size: 1.25rem; /* Aproximadamente 20px, puedes ajustar este valor */
+        font-weight: bold;  /* Texto en negrita */
+      }
+
+      /* Estilo personalizado para la lista de categorías */
+      .list-group-item {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        color: #000;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .list-group-item:hover,
+      .list-group-item.active {
+        background-color: #000;
+        color: #fff;
+        border-color: #000;
+      }
+
+      /* Otros estilos */
+      .servicios {
+        
+        text-align: center;
+        padding: 40px;
+      }
+      .about-us {
+        max-height: 150px; 
+        margin-right: 40px;
+      }
+      .margenau { 
+        margin-left: 25px;
+      }
+      .btn {
+        animation: pulse 2s infinite;
+      }
+      .instagram-btn {
+        margin-left: 10px;
+        background-color: rgb(192, 14, 53);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+      }
+      .instagram-btn:hover {
+        background-color: rgb(0, 0, 0);
+        color: #fff;
+      }
+      .whatsapp-btn {
+        margin-right: 10px;
+        background-color: rgb(9, 192, 100);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+      }
+      .whatsapp-btn:hover {
+        background-color: rgb(0, 0, 0);
+        color: #fff;
+      }
+      @keyframes slideUp {
+        from {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      footer {
+        background-color: #1a1a1a;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+      
+      /* Estilos para mostrar/ocultar secciones */
+      .seccion {
+        display: none;
+      }
+      .seccion.activa {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Navbar con clase navbar-fixed para posicionarla de forma fija -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed">
+      <a class="navbar-brand" href="#">
+        <picture>
+          <!-- Para pantallas pequeñas se usa el logo reducido -->
+          <source media="(max-width: 768px)" srcset="Recursos/Logo/ROZUPaginaLogoSmall.png">
+          <!-- Para pantallas mayores se usa el logo completo -->
+          <img src="Recursos/Logo/ROZUPaginaLogo.png" alt="ROZU Icono" class="navbar-icon">
+        </picture>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('home');">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('gallery');">Galería</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('contact');">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('about');">Sobre Nosotros</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Secciones de la página -->
+    <!-- Sección Home (Slider) -->
+    <section id="home" class="seccion activa">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+
+        
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="Recursos/Logo/Banner Prueba.png" class="d-block w-100" alt="Calidad Inigualable">
+            <div class="carousel-caption d-none d-md-block">
+              <h2>Calidad Inigualable</h2>
+              <h4>Camisetas con estilo y confort.</h4>
+            </div>
+          </div>
+          
+          <div class="carousel-item">
+            <img src="Recursos/michell post 1-01.png" class="d-block w-100" alt="Estilo Moderno">
+            <div class="carousel-caption d-none d-md-block">
+              <h2>Estilo Moderno</h2>
+              <h4>Diseños únicos para cada ocasión.</h4>
+            </div>
+          </div>
+          
+          <div class="carousel-item">
+            <img src="Recursos/michell post 2-01.png" class="d-block w-100" alt="Confort y Elegancia">
+            <div class="carousel-caption d-none d-md-block">
+              <h2>Confort y Elegancia</h2>
+              <h4>Frescas y ligeras, perfectas para el día a día.</h4>
+            </div>
           </div>
         </div>
         
-        <div class="carousel-item">
-          <img src="Recursos/michell post 1-01.png" class="d-block w-100" alt="Estilo Moderno">
-          <div class="carousel-caption d-none d-md-block">
-            <h2>Estilo Moderno</h2>
-            <h4>Diseños únicos para cada ocasión.</h4>
-          </div>
-        </div>
-        
-        <div class="carousel-item">
-          <img src="Recursos/michell post 2-01.png" class="d-block w-100" alt="Confort y Elegancia">
-          <div class="carousel-caption d-none d-md-block">
-            <h2>Confort y Elegancia</h2>
-            <h4>Frescas y ligeras, perfectas para el día a día.</h4>
-          </div>
-        </div>
-      </div>
-      
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Anterior</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Siguiente</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- Sección Galería -->
-<section id="gallery" class="seccion">
-  <div class="container my-5">
-    <h1>Galería</h1>
-    <div class="row">
-      
-      <!-- Columna de categorías -->
-      <div class="col-md-3">
-        <div class="list-group">
-          <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('all')">Todas</a>
-          <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('anime')">Anime</a>
-          <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('artistas')">Artistas</a>
-          <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('deportistas')">Deportistas</a>
-          <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('peliculas')">Peliculas</a>
-          <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('series')">Series</a>
-          <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('rozu-exclusive')">Rozu-Exclusive</a>
-        </div>
-      </div>
-      
-      <!-- Columna de imágenes -->
-      <div class="col-md-9">
-        <div class="row" id="galleryContainer">
-          <!-- Categoria Anime -->
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (1).png" alt="Anime">
-          </div>
-         <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (2).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (3).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (4).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (5).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (6).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (7).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (8).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (9).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (10).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (11).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (12).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (13).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (14).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (15).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (16).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (17).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (18).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (19).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (20).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (21).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (22).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (23).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (24).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (25).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (26).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (27).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (28).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (29).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (30).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (31).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (32).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (33).png" alt="Anime">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="anime">
-            <img src="Recursos/anime post/Anime (34).png" alt="Anime">
-          </div>
-
-          <!-- Categoria Artistas -->
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (1).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (2).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (3).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (4).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (5).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (6).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (7).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (8).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (9).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (10).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (11).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (12).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (13).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (14).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (15).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (16).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (17).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (18).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (19).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (20).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (21).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (22).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (23).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (24).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (25).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (26).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (27).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (28).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (29).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (30).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (31).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (32).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (33).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (34).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (35).png" alt="Artista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="artistas">
-            <img src="Recursos/artistas post/Artistas (36).png" alt="Artista">
-          </div>
-          
-          <!-- Categoria Deportistas -->
-          <div class="col-md-4 gallery-item" data-category="deportistas">
-            <img src="Recursos/23.png" alt="Deportista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="deportistas">
-            <img src="Recursos/30.png" alt="Deportista">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="deportistas">
-            <img src="Recursos/31.png" alt="Deportista">
-          </div>
-          
-          <!-- Categoria Peliculas -->
-          <div class="col-md-4 gallery-item" data-category="peliculas">
-            <img src="Recursos/peliculas post/Peliculas (1).png" alt="Peliculas">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="peliculas">
-            <img src="Recursos/peliculas post/Peliculas (2).png" alt="Peliculas">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="peliculas">
-            <img src="Recursos/peliculas post/Peliculas (3).png" alt="Peliculas">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="peliculas">
-            <img src="Recursos/peliculas post/Peliculas (4).png" alt="Peliculas">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="peliculas">
-            <img src="Recursos/peliculas post/Peliculas (5).png" alt="Peliculas">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="peliculas">
-            <img src="Recursos/peliculas post/Peliculas (6).png" alt="Peliculas">
-          </div>
-          
-          <!-- Categoria Series -->
-          <div class="col-md-4 gallery-item" data-category="series">
-            <img src="Recursos/series post/Series (1).png" alt="Series">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="series">
-            <img src="Recursos/series post/Series (2).png" alt="Series">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="series">
-            <img src="Recursos/series post/Series (3).png" alt="Series">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="series">
-            <img src="Recursos/series post/Series (4).png" alt="Series">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="series">
-            <img src="Recursos/series post/Series (5).png" alt="Series">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="series">
-            <img src="Recursos/series post/Series (6).png" alt="Series">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="series">
-            <img src="Recursos/series post/Series (7).png" alt="Series">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="series">
-            <img src="Recursos/series post/Series (8).png" alt="Series">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="series">
-            <img src="Recursos/series post/Series (9).png" alt="Series">
-          </div>
-          
-          <!-- Categoria Rozu Exclusive -->
-          <div class="col-md-4 gallery-item" data-category="rozu-exclusive">
-            <img src="Recursos/13.png" alt="Rozu Exclusive">
-          </div>
-          <div class="col-md-4 gallery-item" data-category="rozu-exclusive">
-            <img src="Recursos/18.png" alt="Rozu Exclusive">
-          </div>
-          <!-- Agrega más imágenes según sea necesario -->
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-    <!-- Sección Servicios -->
-  <section id="services" class="seccion">
-    <div class="container my-4">
-      <div class="row">
-        <div class="col-md-4">
-          <h3>Diseños Personalizados</h3>
-          <h4>Ofrecemos diseños personalizados para cada cliente, adaptados a sus gustos y necesidades.</h4>
-        </div>
-        <div class="col-md-4">
-          <h3>Calidad Superior</h3>
-          <h4>Usamos materiales de alta calidad que garantizan durabilidad y confort.</h4>
-        </div>
-        <div class="col-md-4">
-          <h3>Entrega Rápida</h3>
-          <h4>Contamos con un sistema de entrega rápida que asegura que recibas tu pedido en el menor tiempo posible.</h4>
-        </div>
-      </div>
-    </div>
-  </section>    
-  
-  <!-- Sección Sobre Nosotros -->
-  <section id="about" class="seccion">
-    <div class="container my-5">
-      <div class="row align-items-center">
-          <!-- Columna del logo -->
-          <div class="col-4 col-md-3">
-            <img src="Recursos/Logo/ROZU-02.png" class="img-fluid" alt="Sobre Nosotros">
-          </div>
-          <!-- Columna del texto -->
-          <div class="col-8 col-md-9">
-            <h1>Sobre Nosotros</h1>
-            <h4>
-              En Rozu, nos dedicamos a crear camisetas de alta calidad que combinan estilo y comodidad. 
-              Nuestra misión es proporcionar a nuestros clientes prendas que se adapten a su vida cotidiana 
-              y reflejen su personalidad.
-            </h4>
-          </div>
-        </div>
-    </div>
-  </section>
-
-  <!-- Sección Contacto -->
-  <section id="contact" class="seccion">
-    <div class="container my-5">
-      <h1 class="text-center">Contacto</h1>
-      <div class="text-center mt-4">
-        <a href="https://wa.me/+584243296308?text=Hola%20!ROZU¡,%20Me%20gustaría%20obtener%20más%20información." 
-           target="_blank" class="btn whatsapp-btn">
-          <i class="fab fa-whatsapp"></i> Contáctanos por WhatsApp
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Anterior</span>
         </a>
-        <a href="https://www.instagram.com/rozuofficial.ve/" target="_blank" class="btn instagram-btn">
-          <i class="fab fa-instagram"></i> Escribenos al DM en Instagram
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Siguiente</span>
         </a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer (siempre visible) -->
-  <footer>
-    <p>Rozu - Tienda Online</p>
-    <p>E-mail - rozuworkgroup@gmail.com</p>
-    <p>&copy; 2025 Todos los derechos reservados.</p>
-  </footer>
+    <!-- Sección Galería -->
+    <section id="gallery" class="seccion">
+      <div class="container my-5">
+        <h1>Galería</h1>
+        <div class="row">
+          
+          <!-- Columna de categorías -->
+          <div class="col-md-3">
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('all')">Todas</a>
+              <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('anime')">Anime</a>
+              <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('artistas')">Artistas</a>
+              <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('deportistas')">Deportistas</a>
+              <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('peliculas')">Peliculas</a>
+              <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('series')">Series</a>
+              <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('rozu-exclusive')">Rozu-Exclusive</a>
+            </div>
+          </div>
+          
+          <!-- Columna de imágenes -->
+          <div class="col-md-9">
+            <div class="row" id="galleryContainer">
+              <!-- Categoria Anime -->
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (1).png" alt="Anime">
+              </div>
+            <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (2).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (3).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (4).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (5).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (6).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (7).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (8).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (9).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (10).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (11).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (12).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (13).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (14).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (15).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (16).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (17).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (18).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (19).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (20).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (21).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (22).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (23).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (24).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (25).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (26).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (27).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (28).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (29).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (30).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (31).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (32).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (33).png" alt="Anime">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="anime">
+                <img src="Recursos/anime post/Anime (34).png" alt="Anime">
+              </div>
 
-<!-- Modal de visualización de imagen con navegación -->
-<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content bg-transparent border-0">
-      <div class="modal-body p-0 position-relative">
-         <img id="modalImage" src="" class="img-fluid" alt="Imagen ampliada">
-         <!-- Botón Anterior -->
-         <a href="#" id="prevBtn" role="button" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%);">
-           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-           <span class="sr-only">Anterior</span>
-         </a>
-         <!-- Botón Siguiente -->
-         <a href="#" id="nextBtn" role="button" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%);">
-           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-           <span class="sr-only">Siguiente</span>
-         </a>
+              <!-- Categoria Artistas -->
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (1).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (2).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (3).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (4).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (5).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (6).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (7).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (8).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (9).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (10).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (11).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (12).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (13).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (14).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (15).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (16).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (17).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (18).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (19).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (20).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (21).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (22).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (23).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (24).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (25).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (26).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (27).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (28).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (29).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (30).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (31).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (32).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (33).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (34).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (35).png" alt="Artista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="artistas">
+                <img src="Recursos/artistas post/Artistas (36).png" alt="Artista">
+              </div>
+              
+              <!-- Categoria Deportistas -->
+              <div class="col-md-4 gallery-item" data-category="deportistas">
+                <img src="Recursos/23.png" alt="Deportista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="deportistas">
+                <img src="Recursos/30.png" alt="Deportista">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="deportistas">
+                <img src="Recursos/31.png" alt="Deportista">
+              </div>
+              
+              <!-- Categoria Peliculas -->
+              <div class="col-md-4 gallery-item" data-category="peliculas">
+                <img src="Recursos/peliculas post/Peliculas (1).png" alt="Peliculas">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="peliculas">
+                <img src="Recursos/peliculas post/Peliculas (2).png" alt="Peliculas">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="peliculas">
+                <img src="Recursos/peliculas post/Peliculas (3).png" alt="Peliculas">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="peliculas">
+                <img src="Recursos/peliculas post/Peliculas (4).png" alt="Peliculas">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="peliculas">
+                <img src="Recursos/peliculas post/Peliculas (5).png" alt="Peliculas">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="peliculas">
+                <img src="Recursos/peliculas post/Peliculas (6).png" alt="Peliculas">
+              </div>
+              
+              <!-- Categoria Series -->
+              <div class="col-md-4 gallery-item" data-category="series">
+                <img src="Recursos/series post/Series (1).png" alt="Series">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="series">
+                <img src="Recursos/series post/Series (2).png" alt="Series">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="series">
+                <img src="Recursos/series post/Series (3).png" alt="Series">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="series">
+                <img src="Recursos/series post/Series (4).png" alt="Series">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="series">
+                <img src="Recursos/series post/Series (5).png" alt="Series">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="series">
+                <img src="Recursos/series post/Series (6).png" alt="Series">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="series">
+                <img src="Recursos/series post/Series (7).png" alt="Series">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="series">
+                <img src="Recursos/series post/Series (8).png" alt="Series">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="series">
+                <img src="Recursos/series post/Series (9).png" alt="Series">
+              </div>
+              
+              <!-- Categoria Rozu Exclusive -->
+              <div class="col-md-4 gallery-item" data-category="rozu-exclusive">
+                <img src="Recursos/13.png" alt="Rozu Exclusive">
+              </div>
+              <div class="col-md-4 gallery-item" data-category="rozu-exclusive">
+                <img src="Recursos/18.png" alt="Rozu Exclusive">
+              </div>
+              <!-- Agrega más imágenes según sea necesario -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+      <!-- Sección Servicios -->
+    <section id="services" class="seccion">
+      <div class="container my-4">
+        <div class="row">
+          <div class="about_text"></div>
+            <div class="col-md-4">
+              <h2>Diseños Personalizados</h2>
+              <p>Ofrecemos diseños personalizados para cada cliente, adaptados a sus gustos y necesidades.</p>
+            </div>
+            <div class="col-md-4">
+              <h2>Calidad Superior</h2>
+              <p>Usamos materiales de alta calidad que garantizan durabilidad y confort.</p>
+            </div>
+            <div class="col-md-4">
+              <h2>Entrega Rápida</h2>
+              <p>Contamos con un sistema de entrega rápida que asegura que recibas tu pedido en el menor tiempo posible.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>    
+    
+    <!-- Sección Sobre Nosotros -->
+    <section id="about" class="seccion">
+      <div class="container my-5">
+        <div class="row align-items-center">
+            <!-- Columna del logo -->
+            <div class="col-4 col-md-3">
+              <img src="Recursos/Logo/ROZU-02.png" class="img-fluid" alt="Sobre Nosotros">
+            </div>
+            <!-- Columna del texto -->
+            <div class="col-8 col-md-9">
+              <div class="about_text"></div>
+                <h2>Sobre Nosotros</h2>
+                <p>
+                  En Rozu, nos dedicamos a crear camisetas de alta calidad que combinan estilo y comodidad. 
+                  Nuestra misión es proporcionar a nuestros clientes prendas que se adapten a su vida cotidiana 
+                  y reflejen su personalidad.
+                </p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contact" class="seccion">
+      <div class="container my-5">
+        <h2 class="text-center">Contacto</h2>
+        <div class="text-center mt-4">
+          <a href="https://wa.me/+584243296308?text=Hola%20!ROZU¡,%20Me%20gustaría%20obtener%20más%20información." 
+            target="_blank" class="btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> Contáctanos por WhatsApp
+          </a>
+          <a href="https://www.instagram.com/rozuofficial.ve/" target="_blank" class="btn instagram-btn">
+            <i class="fab fa-instagram"></i> Escribenos al DM en Instagram
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer (siempre visible) -->
+    <footer>
+      <p>Rozu - Tienda Online</p>
+      <p>E-mail - rozuworkgroup@gmail.com</p>
+      <p>&copy; 2025 Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Modal de visualización de imagen con navegación -->
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content bg-transparent border-0">
+          <div class="modal-body p-0 position-relative">
+            <img id="modalImage" src="" class="img-fluid" alt="Imagen ampliada">
+            <!-- Botón Anterior -->
+            <a href="#" id="prevBtn" role="button" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%);">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Anterior</span>
+            </a>
+            <!-- Botón Siguiente -->
+            <a href="#" id="nextBtn" role="button" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%);">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Siguiente</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
 
     <!-- Script para filtrar imagenes -->
-  <script>
-  function filterGallery(category) {
-    const items = document.querySelectorAll('.gallery-item');
-    items.forEach(item => {
-      // Si se selecciona "all" o la categoría coincide, se muestra la imagen
-      if (category === 'all' || item.getAttribute('data-category') === category) {
-        item.classList.remove('d-none');
-      } else {
-        item.classList.add('d-none');
+    <script>
+      function filterGallery(category) {
+        const items = document.querySelectorAll('.gallery-item');
+        items.forEach(item => {
+          // Si se selecciona "all" o la categoría coincide, se muestra la imagen
+          if (category === 'all' || item.getAttribute('data-category') === category) {
+            item.classList.remove('d-none');
+          } else {
+            item.classList.add('d-none');
+          }
+        });
       }
-    });
-  }
-</script>
+    </script>
 
-  <!-- Scripts -->
-  <script>
-    let prevScrollPos = window.pageYOffset;
-    const navbar = document.querySelector('.navbar-fixed');
-    
-    window.addEventListener('scroll', function() {
-      const currentScrollPos = window.pageYOffset;
+    <!-- Scripts -->
+    <script>
+      let prevScrollPos = window.pageYOffset;
+      const navbar = document.querySelector('.navbar-fixed');
       
-      // Si el usuario sube, mostramos la navbar; si baja, se oculta.
-      if (prevScrollPos > currentScrollPos) {
-        navbar.classList.remove('navbar-hidden');
-      } else {
-        navbar.classList.add('navbar-hidden');
-      }
-      prevScrollPos = currentScrollPos;
-      
-      // Opcional: Reducir tamaño de la navbar cuando se haya hecho scroll considerable
-      if (currentScrollPos > 100) {
-        navbar.classList.add('navbar-small');
-      } else {
-        navbar.classList.remove('navbar-small');
-      }
-    });
-    
-    // Mostrar la navbar si el cursor se mueve cerca del borde superior de la ventana
-    document.addEventListener('mousemove', function(e) {
-      if (e.clientY < 50) { // umbral de 50px desde la parte superior
-        navbar.classList.remove('navbar-hidden');
-      }
-    });
-  </script>
-  
-  <!-- Enlaces a Bootstrap JS y dependencias -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
-  <!-- Script para mostrar/ocultar secciones -->
-  <script>
-    function mostrarSeccion(id) {
-      // Oculta todas las secciones
-      var secciones = document.querySelectorAll('.seccion');
-      secciones.forEach(function(seccion) {
-        seccion.classList.remove('activa');
+      window.addEventListener('scroll', function() {
+        const currentScrollPos = window.pageYOffset;
+        
+        // Si el usuario sube, mostramos la navbar; si baja, se oculta.
+        if (prevScrollPos > currentScrollPos) {
+          navbar.classList.remove('navbar-hidden');
+        } else {
+          navbar.classList.add('navbar-hidden');
+        }
+        prevScrollPos = currentScrollPos;
+        
+        // Opcional: Reducir tamaño de la navbar cuando se haya hecho scroll considerable
+        if (currentScrollPos > 100) {
+          navbar.classList.add('navbar-small');
+        } else {
+          navbar.classList.remove('navbar-small');
+        }
       });
-      // Si se selecciona 'home', mostramos 'home' y 'contact' juntos
-      if (id === 'home') {
-        document.getElementById('home').classList.add('activa');
-        document.getElementById('services').classList.add('activa');
-        document.getElementById('contact').classList.add('activa');
-        document.getElementById('about').classList.add('activa');
-      } else {
-        // Si se selecciona cualquier otra, se muestra sólo esa sección
-        var seccionActiva = document.getElementById(id);
-        if (seccionActiva) {
-          seccionActiva.classList.add('activa');
+      
+      // Mostrar la navbar si el cursor se mueve cerca del borde superior de la ventana
+      document.addEventListener('mousemove', function(e) {
+        if (e.clientY < 50) { // umbral de 50px desde la parte superior
+          navbar.classList.remove('navbar-hidden');
+        }
+      });
+    </script>
+    
+    <!-- Enlaces a Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- Script para mostrar/ocultar secciones -->
+    <script>
+      function mostrarSeccion(id) {
+        // Oculta todas las secciones
+        var secciones = document.querySelectorAll('.seccion');
+        secciones.forEach(function(seccion) {
+          seccion.classList.remove('activa');
+        });
+        // Si se selecciona 'home', mostramos 'home' y 'contact' juntos
+        if (id === 'home') {
+          document.getElementById('home').classList.add('activa');
+          document.getElementById('services').classList.add('activa');
+          document.getElementById('contact').classList.add('activa');
+          document.getElementById('about').classList.add('activa');
+        } else {
+          // Si se selecciona cualquier otra, se muestra sólo esa sección
+          var seccionActiva = document.getElementById(id);
+          if (seccionActiva) {
+            seccionActiva.classList.add('activa');
+          }
         }
       }
-    }
-    // Cierra el menú colapsado en móviles
-    $('.navbar-collapse').collapse('hide');
+      // Cierra el menú colapsado en móviles
+      $('.navbar-collapse').collapse('hide');
 
-    // Opcional: Mostrar por defecto la sección "home" (que incluye también "contact") al cargar la página
-    document.addEventListener("DOMContentLoaded", function() {
-      mostrarSeccion('home');
-    });
-  </script>
+      // Opcional: Mostrar por defecto la sección "home" (que incluye también "contact") al cargar la página
+      document.addEventListener("DOMContentLoaded", function() {
+        mostrarSeccion('home');
+      });
+    </script>
 
- <script>
-  // Obtén todas las imágenes de la galería y conviértelas en un arreglo
-  const galleryImages = Array.from(document.querySelectorAll('.gallery-item img'));
-  let currentIndex = 0; // Índice de la imagen actualmente mostrada en el modal
+  <script>
+      // Obtén todas las imágenes de la galería y conviértelas en un arreglo
+      const galleryImages = Array.from(document.querySelectorAll('.gallery-item img'));
+      let currentIndex = 0; // Índice de la imagen actualmente mostrada en el modal
 
-  // Asigna el evento de click a cada imagen de la galería
-  galleryImages.forEach((img, index) => {
-    img.addEventListener('click', function() {
-      currentIndex = index; // Guarda el índice de la imagen clickeada
-      const src = this.getAttribute('src');
-      document.getElementById('modalImage').setAttribute('src', src);
-      $('#imageModal').modal('show'); // Abre el modal (usa jQuery y Bootstrap)
-    });
-  });
+      // Asigna el evento de click a cada imagen de la galería
+      galleryImages.forEach((img, index) => {
+        img.addEventListener('click', function() {
+          currentIndex = index; // Guarda el índice de la imagen clickeada
+          const src = this.getAttribute('src');
+          document.getElementById('modalImage').setAttribute('src', src);
+          $('#imageModal').modal('show'); // Abre el modal (usa jQuery y Bootstrap)
+        });
+      });
 
-  // Función para actualizar la imagen del modal según el índice actual
-  function updateModalImage() {
-    const newSrc = galleryImages[currentIndex].getAttribute('src');
-    document.getElementById('modalImage').setAttribute('src', newSrc);
-  }
+      // Función para actualizar la imagen del modal según el índice actual
+      function updateModalImage() {
+        const newSrc = galleryImages[currentIndex].getAttribute('src');
+        document.getElementById('modalImage').setAttribute('src', newSrc);
+      }
 
-  // Evento para el botón "Anterior"
-  document.getElementById('prevBtn').addEventListener('click', function(event) {
-    event.preventDefault();
-    // Si estamos en la primera imagen, saltamos a la última (circular)
-    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-    updateModalImage();
-  });
+      // Evento para el botón "Anterior"
+      document.getElementById('prevBtn').addEventListener('click', function(event) {
+        event.preventDefault();
+        // Si estamos en la primera imagen, saltamos a la última (circular)
+        currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+        updateModalImage();
+      });
 
-  // Evento para el botón "Siguiente"
-  document.getElementById('nextBtn').addEventListener('click', function(event) {
-    event.preventDefault();
-    // Si estamos en la última imagen, saltamos a la primera (circular)
-    currentIndex = (currentIndex + 1) % galleryImages.length;
-    updateModalImage();
-  });
-</script>
+      // Evento para el botón "Siguiente"
+      document.getElementById('nextBtn').addEventListener('click', function(event) {
+        event.preventDefault();
+        // Si estamos en la última imagen, saltamos a la primera (circular)
+        currentIndex = (currentIndex + 1) % galleryImages.length;
+        updateModalImage();
+      });
+    </script>
 
-</body>
+  </body>
 </html>
