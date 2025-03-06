@@ -37,7 +37,7 @@
       scroll-behavior: smooth;
     }
     .carousel-item img {
-      max-height: 900px;
+      max-height: 880px;
       object-fit: cover;
       width: 100%;
     }
@@ -52,7 +52,10 @@
       border-radius: 8px;
       transition: background 0.4s ease, color 0.4s ease;
     }
-    
+
+    #home {
+      margin-top: 80px; /* Ajusta este valor si la altura de la navbar cambia */
+    }
     /* Estilo para la sección Galería */
     #gallery {
       padding: 20px 20px;
@@ -187,6 +190,7 @@
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('home');">Inicio</a></li>
@@ -206,6 +210,8 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
+
+      
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img src="Recursos/Logo/Banner Prueba.png" class="d-block w-100" alt="Calidad Inigualable">
@@ -214,6 +220,7 @@
             <h4>Camisetas con estilo y confort.</h4>
           </div>
         </div>
+        
         <div class="carousel-item">
           <img src="Recursos/michell post 1-01.png" class="d-block w-100" alt="Estilo Moderno">
           <div class="carousel-caption d-none d-md-block">
@@ -221,6 +228,7 @@
             <h4>Diseños únicos para cada ocasión.</h4>
           </div>
         </div>
+        
         <div class="carousel-item">
           <img src="Recursos/michell post 2-01.png" class="d-block w-100" alt="Confort y Elegancia">
           <div class="carousel-caption d-none d-md-block">
@@ -229,6 +237,7 @@
           </div>
         </div>
       </div>
+      
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Anterior</span>
