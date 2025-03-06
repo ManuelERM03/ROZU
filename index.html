@@ -8,11 +8,28 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   
   <link rel="icon" href="Recursos/Logo/favicon.svg" type="image/svg+xml">
-  <link rel="manifest" href="Recursos/Logo/site.webmanifest">
   
   <!-- Estilos personalizados -->
   <style>
     /* Estilo para la navbar */
+        /* Estilos para navbar fija y animaciones */
+    .navbar-fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      transition: top 0.3s ease, height 0.3s ease;
+    }
+    /* Cuando se oculta, se desplaza hacia arriba (ajusta el valor según la altura de tu navbar) */
+    .navbar-hidden {
+      top: -80px;
+    }
+    /* Reducir la altura de la navbar */
+    .navbar-small {
+      height: 50px;
+    }
+    
     .navbar-nav .nav-link {
       font-size: 20px;
     }
@@ -161,8 +178,8 @@
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Navbar con clase navbar-fixed para posicionarla de forma fija -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed">
     <a class="navbar-brand" href="#">
       <img src="Recursos/Logo/ROZUPaginaLogo.png" alt="ROZU Icono" class="navbar-icon">
     </a>
@@ -172,7 +189,6 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-        <!-- Se cambia el href y se añade onclick para mostrar la sección correspondiente -->
         <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('home');">Inicio</a></li>
         <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('gallery');">Galería</a></li>
         <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('contact');">Contacto</a></li>
@@ -585,8 +601,8 @@
            target="_blank" class="btn whatsapp-btn">
           <i class="fab fa-whatsapp"></i> Contáctanos por WhatsApp
         </a>
-        <a href="https://instagram.com/tu_usuario" target="_blank" class="btn instagram-btn">
-          <i class="fab fa-instagram"></i> Síguenos en Instagram
+        <a href="https://www.instagram.com/rozuofficial.ve/" target="_blank" class="btn instagram-btn">
+          <i class="fab fa-instagram"></i> Escribenos al DM en Instagram
         </a>
       </div>
     </div>
@@ -640,6 +656,43 @@
     });
   }
 </script>
+
+  <!-- Scripts -->
+  <script>
+    let prevScrollPos = window.pageYOffset;
+    const navbar = document.querySelector('.navbar-fixed');
+    
+    window.addEventListener('scroll', function() {
+      const currentScrollPos = window.pageYOffset;
+      
+      // Si el usuario sube, mostramos la navbar; si baja, se oculta.
+      if (prevScrollPos > currentScrollPos) {
+        navbar.classList.remove('navbar-hidden');
+      } else {
+        navbar.classList.add('navbar-hidden');
+      }
+      prevScrollPos = currentScrollPos;
+      
+      // Opcional: Reducir tamaño de la navbar cuando se haya hecho scroll considerable
+      if (currentScrollPos > 100) {
+        navbar.classList.add('navbar-small');
+      } else {
+        navbar.classList.remove('navbar-small');
+      }
+    });
+    
+    // Mostrar la navbar si el cursor se mueve cerca del borde superior de la ventana
+    document.addEventListener('mousemove', function(e) {
+      if (e.clientY < 50) { // umbral de 50px desde la parte superior
+        navbar.classList.remove('navbar-hidden');
+      }
+    });
+  </script>
+  
+  <!-- Enlaces a Bootstrap JS y dependencias -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   
   <!-- Script para mostrar/ocultar secciones -->
   <script>
