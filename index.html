@@ -646,11 +646,6 @@
 </div>
 
 
-  <!-- Scripts de Bootstrap -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
     <!-- Script para filtrar imagenes -->
   <script>
   function filterGallery(category) {
@@ -705,32 +700,34 @@
   
   <!-- Script para mostrar/ocultar secciones -->
   <script>
-  function mostrarSeccion(id) {
-    // Oculta todas las secciones
-    var secciones = document.querySelectorAll('.seccion');
-    secciones.forEach(function(seccion) {
-      seccion.classList.remove('activa');
-    });
-    // Si se selecciona 'home', mostramos 'home' y 'contact' juntos
-    if (id === 'home') {
-      document.getElementById('home').classList.add('activa');
-      document.getElementById('services').classList.add('activa');
-      document.getElementById('contact').classList.add('activa');
-      document.getElementById('about').classList.add('activa');
-    } else {
-      // Si se selecciona cualquier otra, se muestra sólo esa sección
-      var seccionActiva = document.getElementById(id);
-      if (seccionActiva) {
-        seccionActiva.classList.add('activa');
+    function mostrarSeccion(id) {
+      // Oculta todas las secciones
+      var secciones = document.querySelectorAll('.seccion');
+      secciones.forEach(function(seccion) {
+        seccion.classList.remove('activa');
+      });
+      // Si se selecciona 'home', mostramos 'home' y 'contact' juntos
+      if (id === 'home') {
+        document.getElementById('home').classList.add('activa');
+        document.getElementById('services').classList.add('activa');
+        document.getElementById('contact').classList.add('activa');
+        document.getElementById('about').classList.add('activa');
+      } else {
+        // Si se selecciona cualquier otra, se muestra sólo esa sección
+        var seccionActiva = document.getElementById(id);
+        if (seccionActiva) {
+          seccionActiva.classList.add('activa');
+        }
       }
     }
-  }
+    // Cierra el menú colapsado en móviles
+    $('.navbar-collapse').collapse('hide');
 
-  // Opcional: Mostrar por defecto la sección "home" (que incluye también "contact") al cargar la página
-  document.addEventListener("DOMContentLoaded", function() {
-    mostrarSeccion('home');
-  });
-</script>
+    // Opcional: Mostrar por defecto la sección "home" (que incluye también "contact") al cargar la página
+    document.addEventListener("DOMContentLoaded", function() {
+      mostrarSeccion('home');
+    });
+  </script>
 
  <script>
   // Obtén todas las imágenes de la galería y conviértelas en un arreglo
