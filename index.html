@@ -108,6 +108,7 @@
       
       #home {
         margin-top: 85px; /* Ajusta este valor si la altura de la navbar cambia */
+        background-color: #D9D9D9;
       }
       /* Estilo para la sección Galería */
       #gallery {
@@ -234,7 +235,7 @@
 
     <!-- Navbar con clase navbar-fixed para posicionarla de forma fija -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed">
-      <a class="navbar-brand" href="home">
+      <a class="navbar-brand" href="https://manuelerm03.github.io/ROZU/">
         <picture>
           <!-- Para pantallas pequeñas se usa el logo reducido -->
           <source media="(max-width: 768px)" srcset="Recursos/Logo/ROZUPaginaLogoSmall.png">
@@ -250,7 +251,7 @@
       
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a class="nav-link" href="home" onclick="mostrarSeccion('home');">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('home');">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('gallery');">Galería</a></li>
           <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('contact');">Contacto</a></li>
           <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('about');">Sobre Nosotros</a></li>
@@ -258,9 +259,9 @@
       </div>
     </nav>
 
-    <!-- Secciones de la página -->
-    <!-- Sección Home (Slider) -->
+
     <section id="home" class="seccion activa">
+      <!-- Sección Carousel -->
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
