@@ -34,18 +34,22 @@
         text-align: center;
         font-size:3.5ex;
       }
+
       /* Estilo para separar las secciones del borde superior */
-      .seccion {
-        padding-top: 80px; /* Ajusta el valor según lo que necesites */
-        }
+      .galeria {
+        padding-top: 60px; /* Ajusta el valor según lo que necesites */
+      }
+
       body {
         scroll-behavior: smooth;
       }
+
       .carousel-item img {
         height: 100%;
         object-fit: cover;
         min-width: 70%;
       }
+
       .navbar-icon {
         max-width: 180px;
         max-height: 100px;
@@ -303,308 +307,310 @@
 
     <!-- Sección Galería -->
     <section id="gallery" class="seccion">
-      <div class="container p-2 my-5">
-        <h1>Galería</h1>
-        <div class="row">
-          
-          <!-- Columna de categorías -->
-          <div class="col-md-3">
-            <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('all')">Todas</a>
-              <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('anime')">Anime</a>
-              <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('artistas')">Artistas</a>
-              <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('deportistas')">Deportistas</a>
-              <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('peliculas')">Peliculas</a>
-              <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('series')">Series</a>
-              <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('rozu-exclusive')">Rozu-Exclusive</a>
+      <div class="galeria">
+        <div class="container p-2 my-5">
+          <h2 class="text-center">Galeria</h2>
+          <div class="row">
+            
+            <!-- Columna de categorías -->
+            <div class="col-md-3">
+              <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('all')">Todas</a>
+                <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('anime')">Anime</a>
+                <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('artistas')">Artistas</a>
+                <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('deportistas')">Deportistas</a>
+                <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('peliculas')">Peliculas</a>
+                <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('series')">Series</a>
+                <a href="#" class="list-group-item list-group-item-action" onclick="filterGallery('rozu-exclusive')">Rozu-Exclusive</a>
+              </div>
             </div>
-          </div>
-          
-          <!-- Columna de imágenes -->
-          <div class="col-md-9">
-            <div class="row" id="galleryContainer">
-              <!-- Categoria Anime -->
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (1).png" alt="Anime">
-              </div>
-            <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (2).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (3).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (4).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (5).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (6).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (7).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (8).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (9).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (10).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (11).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (12).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (13).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (14).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (15).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (16).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (17).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (18).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (19).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (20).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (21).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (22).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (23).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (24).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (25).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (26).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (27).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (28).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (29).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (30).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (31).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (32).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (33).png" alt="Anime">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="anime">
-                <img src="Recursos/anime post/Anime (34).png" alt="Anime">
-              </div>
+            
+            <!-- Columna de imágenes -->
+            <div class="col-md-9">
+              <div class="row" id="galleryContainer">
+                <!-- Categoria Anime -->
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (1).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (2).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (3).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (4).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (5).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (6).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (7).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (8).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (9).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (10).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (11).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (12).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (13).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (14).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (15).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (16).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (17).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (18).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (19).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (20).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (21).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (22).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (23).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (24).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (25).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (26).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (27).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (28).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (29).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (30).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (31).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (32).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (33).png" alt="Anime">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="anime">
+                  <img src="Recursos/anime post/Anime (34).png" alt="Anime">
+                </div>
 
-              <!-- Categoria Artistas -->
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (1).png" alt="Artista">
+                <!-- Categoria Artistas -->
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (1).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (2).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (3).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (4).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (5).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (6).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (7).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (8).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (9).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (10).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (11).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (12).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (13).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (14).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (15).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (16).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (17).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (18).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (19).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (20).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (21).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (22).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (23).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (24).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (25).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (26).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (27).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (28).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (29).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (30).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (31).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (32).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (33).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (34).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (35).png" alt="Artista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="artistas">
+                  <img src="Recursos/artistas post/Artistas (36).png" alt="Artista">
+                </div>
+                
+                <!-- Categoria Deportistas -->
+                <div class="col-md-4 gallery-item" data-category="deportistas">
+                  <img src="Recursos/23.png" alt="Deportista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="deportistas">
+                  <img src="Recursos/30.png" alt="Deportista">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="deportistas">
+                  <img src="Recursos/31.png" alt="Deportista">
+                </div>
+                
+                <!-- Categoria Peliculas -->
+                <div class="col-md-4 gallery-item" data-category="peliculas">
+                  <img src="Recursos/peliculas post/Peliculas (1).png" alt="Peliculas">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="peliculas">
+                  <img src="Recursos/peliculas post/Peliculas (2).png" alt="Peliculas">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="peliculas">
+                  <img src="Recursos/peliculas post/Peliculas (3).png" alt="Peliculas">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="peliculas">
+                  <img src="Recursos/peliculas post/Peliculas (4).png" alt="Peliculas">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="peliculas">
+                  <img src="Recursos/peliculas post/Peliculas (5).png" alt="Peliculas">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="peliculas">
+                  <img src="Recursos/peliculas post/Peliculas (6).png" alt="Peliculas">
+                </div>
+                
+                <!-- Categoria Series -->
+                <div class="col-md-4 gallery-item" data-category="series">
+                  <img src="Recursos/series post/Series (1).png" alt="Series">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="series">
+                  <img src="Recursos/series post/Series (2).png" alt="Series">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="series">
+                  <img src="Recursos/series post/Series (3).png" alt="Series">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="series">
+                  <img src="Recursos/series post/Series (4).png" alt="Series">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="series">
+                  <img src="Recursos/series post/Series (5).png" alt="Series">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="series">
+                  <img src="Recursos/series post/Series (6).png" alt="Series">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="series">
+                  <img src="Recursos/series post/Series (7).png" alt="Series">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="series">
+                  <img src="Recursos/series post/Series (8).png" alt="Series">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="series">
+                  <img src="Recursos/series post/Series (9).png" alt="Series">
+                </div>
+                
+                <!-- Categoria Rozu Exclusive -->
+                <div class="col-md-4 gallery-item" data-category="rozu-exclusive">
+                  <img src="Recursos/13.png" alt="Rozu Exclusive">
+                </div>
+                <div class="col-md-4 gallery-item" data-category="rozu-exclusive">
+                  <img src="Recursos/18.png" alt="Rozu Exclusive">
+                </div>
+                <!-- Agrega más imágenes según sea necesario -->
               </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (2).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (3).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (4).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (5).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (6).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (7).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (8).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (9).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (10).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (11).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (12).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (13).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (14).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (15).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (16).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (17).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (18).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (19).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (20).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (21).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (22).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (23).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (24).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (25).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (26).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (27).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (28).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (29).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (30).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (31).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (32).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (33).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (34).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (35).png" alt="Artista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="artistas">
-                <img src="Recursos/artistas post/Artistas (36).png" alt="Artista">
-              </div>
-              
-              <!-- Categoria Deportistas -->
-              <div class="col-md-4 gallery-item" data-category="deportistas">
-                <img src="Recursos/23.png" alt="Deportista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="deportistas">
-                <img src="Recursos/30.png" alt="Deportista">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="deportistas">
-                <img src="Recursos/31.png" alt="Deportista">
-              </div>
-              
-              <!-- Categoria Peliculas -->
-              <div class="col-md-4 gallery-item" data-category="peliculas">
-                <img src="Recursos/peliculas post/Peliculas (1).png" alt="Peliculas">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="peliculas">
-                <img src="Recursos/peliculas post/Peliculas (2).png" alt="Peliculas">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="peliculas">
-                <img src="Recursos/peliculas post/Peliculas (3).png" alt="Peliculas">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="peliculas">
-                <img src="Recursos/peliculas post/Peliculas (4).png" alt="Peliculas">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="peliculas">
-                <img src="Recursos/peliculas post/Peliculas (5).png" alt="Peliculas">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="peliculas">
-                <img src="Recursos/peliculas post/Peliculas (6).png" alt="Peliculas">
-              </div>
-              
-              <!-- Categoria Series -->
-              <div class="col-md-4 gallery-item" data-category="series">
-                <img src="Recursos/series post/Series (1).png" alt="Series">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="series">
-                <img src="Recursos/series post/Series (2).png" alt="Series">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="series">
-                <img src="Recursos/series post/Series (3).png" alt="Series">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="series">
-                <img src="Recursos/series post/Series (4).png" alt="Series">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="series">
-                <img src="Recursos/series post/Series (5).png" alt="Series">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="series">
-                <img src="Recursos/series post/Series (6).png" alt="Series">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="series">
-                <img src="Recursos/series post/Series (7).png" alt="Series">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="series">
-                <img src="Recursos/series post/Series (8).png" alt="Series">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="series">
-                <img src="Recursos/series post/Series (9).png" alt="Series">
-              </div>
-              
-              <!-- Categoria Rozu Exclusive -->
-              <div class="col-md-4 gallery-item" data-category="rozu-exclusive">
-                <img src="Recursos/13.png" alt="Rozu Exclusive">
-              </div>
-              <div class="col-md-4 gallery-item" data-category="rozu-exclusive">
-                <img src="Recursos/18.png" alt="Rozu Exclusive">
-              </div>
-              <!-- Agrega más imágenes según sea necesario -->
             </div>
           </div>
         </div>
