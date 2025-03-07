@@ -36,11 +36,12 @@
       }
 
       /* Estilo para separar las secciones del borde superior */
-      .galeria {
+      .distancia-top {
         padding-top: 60px; /* Ajusta el valor según lo que necesites */
       }
 
       body {
+        background: #f8f9fa;
         scroll-behavior: smooth;
       }
 
@@ -61,7 +62,7 @@
         }
       }
       .navbar-nav .nav-link:hover {
-        background: #d4d4d4;
+        background: #f8f9fa;
         color: black !important;
         padding: 5px;
         border-radius: 8px;
@@ -233,7 +234,7 @@
 
     <!-- Navbar con clase navbar-fixed para posicionarla de forma fija -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="home">
         <picture>
           <!-- Para pantallas pequeñas se usa el logo reducido -->
           <source media="(max-width: 768px)" srcset="Recursos/Logo/ROZUPaginaLogoSmall.png">
@@ -249,7 +250,7 @@
       
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('home');">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="home" onclick="mostrarSeccion('home');">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('gallery');">Galería</a></li>
           <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('contact');">Contacto</a></li>
           <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('about');">Sobre Nosotros</a></li>
@@ -307,8 +308,8 @@
 
     <!-- Sección Galería -->
     <section id="gallery" class="seccion">
-      <div class="galeria">
-        <div class="container p-2 my-5">
+      <div class="distancia-top">
+        <div class="container p-4 my-5">
           <h2 class="text-center">Galeria</h2>
           <div class="row">
             
@@ -621,7 +622,7 @@
       <!-- Sección Servicios -->
     <section id="services" class="seccion">
       <div class="container p-3 my-3">
-        <div class="row align-items-center">
+        <div class="row align-items-baseline">
             <div class="col-md-4">
               <h3>Diseños Personalizados</h3>
               <p>Ofrecemos diseños personalizados para cada cliente, adaptados a sus gustos y necesidades.</p>
@@ -641,15 +642,16 @@
     
     <!-- Sección Sobre Nosotros -->
     <section id="about" class="seccion">
-      <div class="container my-5">
-        <div class="row align-items-center">
-            <!-- Columna del logo -->
-            <div class="col-4 col-md-3">
-              <img src="Recursos/Logo/ROZU-02.png" class="img-fluid" alt="Sobre Nosotros">
-            </div>
-            <!-- Columna del texto -->
-            <div class="col-8 col-md-9">
-                <h2>Sobre Nosotros</h2>
+      <div class="distancia-top">
+        <div class="container my-5">
+          <div class="row align-items-center">
+              <!-- Columna del logo -->
+              <div class="col-4 col-md-3">
+                <img src="Recursos/Logo/ROZU-02.png" class="img-fluid" alt="Sobre Nosotros">
+              </div>
+              <!-- Columna del texto -->
+              <div class="col-8 col-md-9">
+                  <h2>Sobre Nosotros</h2>
                   <p>
                   En Rozu, nos dedicamos a crear camisetas de alta calidad que combinan estilo y comodidad. 
                   Nuestra misión es proporcionar a nuestros clientes prendas que se adapten a su vida cotidiana 
@@ -658,21 +660,24 @@
               </div>
             </div>
           </div>
+        </div>
       </div>
     </section>
 
     <!-- Sección Contacto -->
     <section id="contact" class="seccion">
-      <div class="container p-2 my-5">
-        <h2 class="text-center">Contacto</h2>
-        <div class="colunm text-center mt-4">
-          <a href="https://wa.me/+584243296308?text=Hola%20!ROZU¡,%20Me%20gustaría%20obtener%20más%20información." 
-            target="_blank" class="btn whatsapp-btn">
-            <i class="fab fa-whatsapp"></i> Contáctanos por WhatsApp
-          </a>
-          <a href="https://www.instagram.com/rozuofficial.ve/" target="_blank" class="btn instagram-btn">
-            <i class="fab fa-instagram"></i> Escribenos al DM en Instagram
-          </a>
+      <div class="distancia-top">
+        <div class="container p-2 my-5">
+          <h2 class="text-center">Contacto</h2>
+          <div class="colunm text-center mt-4">
+            <a href="https://wa.me/+584243296308?text=Hola%20!ROZU¡,%20Me%20gustaría%20obtener%20más%20información." 
+              target="_blank" class="btn whatsapp-btn">
+              <i class="fab fa-whatsapp"></i> Contáctanos por WhatsApp
+            </a>
+            <a href="https://www.instagram.com/rozuofficial.ve/" target="_blank" class="btn instagram-btn">
+              <i class="fab fa-instagram"></i> Escribenos al DM en Instagram
+            </a>
+          </div>
         </div>
       </div>
     </section>
